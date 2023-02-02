@@ -1,16 +1,13 @@
 const express = require('express');
 const app = express()
 
-const PORT = 2110
+const billsContoller = require('./backend/routes/bills')
 require("dotenv").config({ path: "./backend/config/.env" });
 
 app.use(express.json())
+
+app.use('/', billsContoller)
 console.log(process.env.PORT)
-
-app.get('/', (req, res)=>{
-    res.json({message: 'hello'})
-})
-
 
 
 
